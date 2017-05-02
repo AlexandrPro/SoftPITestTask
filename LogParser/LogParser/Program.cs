@@ -45,7 +45,7 @@ namespace LogParser
                 else break;
                 Console.WriteLine(i++);
             }
-            while (str != null && i<20);
+            while (str != null /*&& i<20*/);
             Console.WriteLine("all done");
             Console.ReadKey();
         }
