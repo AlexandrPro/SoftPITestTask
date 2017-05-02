@@ -71,6 +71,12 @@
     <Compile Include="Entity\IPAdress.cs" />
     <Compile Include="Entity\Log.cs" />
     <Compile Include="Entity\LogModel.cs" />
+    <Compile Include="FileOutput\LogFile.cs" />
+    <Compile Include="Managers\FileManager.cs" />
+    <Compile Include="Managers\HTTPMethodManager.cs" />
+    <Compile Include="Managers\IPAdressManager.cs" />
+    <Compile Include="Managers\LogManager.cs" />
+    <Compile Include="Parsers\LogStringParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

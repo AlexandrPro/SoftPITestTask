@@ -1,4 +1,4 @@
-namespace LogParser.Entity
+namespace LogParser.NewFolder1
 {
     using System;
     using System.Collections.Generic;
@@ -19,6 +19,7 @@ namespace LogParser.Entity
         [StringLength(300)]
         public string PathAndName { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string PageName { get; set; }
 
