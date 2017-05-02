@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WebApplication.Models.Log>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Path and name
+        </th>
+        <th>
+            Page title
+        </th>
+        <th>
+            HTTP Method
+        </th>
+        <th>
+            IP address company name
+        </th>
+        <th>
+            Time
+        </th>
+        <th>
+            HTTP status
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.File.PathAndName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.File.PageName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HTTPMethod.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IPAdress1.NAme)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HTTPStatus)
+        </td>
+    </tr>
+}
+
+</table>
