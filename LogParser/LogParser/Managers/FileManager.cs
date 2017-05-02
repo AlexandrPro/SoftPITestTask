@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using LogParser.Entity;
+using LogParser.WebSiteRequest;
+using System.Text.RegularExpressions;
 
 namespace LogParser.Managers
 {
@@ -11,15 +13,20 @@ namespace LogParser.Managers
 
         public int GetId(string filePathAndName, int size)
         {
-            File file = db.Files.Where(f => f.PathAndName == filePathAndName).FirstOrDefault();
-            if (file != null)
+            if (isHtml(filePathAndName))
             {
-                return file.Id;
+                File file = db.Files.Where(f => f.PathAndName == filePathAndName).FirstOrDefault();
+                if (file != null)
+                {
+                    return file.Id;
+                }
+                else
+                {
+                    return CreateFile(filePathAndName, size);
+                }
             }
             else
-            {
-                return CreateFile(filePathAndName, size);
-            }
+                return -1;
         }
 
         private int CreateFile(string filePathAndName, int size)
@@ -27,10 +34,27 @@ namespace LogParser.Managers
             File file = db.Files.Add(new File()
             {
                 PathAndName = filePathAndName,
+                PageName = MainSite.GetDocHendler(filePathAndName),
                 Size = size
             });
             db.SaveChanges();
             return file.Id;
+        }
+
+        private bool isHtml(string str)
+        {
+            string pattern1 = @"(\S*\\)$";
+            string pattern2 = @"(\S*\.html)$";
+
+            if(Regex.IsMatch(str, pattern1) || Regex.IsMatch(str, pattern2))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }

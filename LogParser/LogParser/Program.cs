@@ -30,19 +30,22 @@ namespace LogParser
                 {
                     string[] strs = LogStringParser.Split(str);
 
-                    string ipAdress = strs[0];
-                    ipAdressManager.AddIP(ipAdress);
-                    int httpMethodId = httpMethodManager.GetId(strs[2]);
                     int fileId = fileManager.GetId(strs[3], Int32.Parse(strs[5]));
-                    DateTimeOffset dateTime = DateTimeOffset.Parse(strs[1]);
-                    int httpStatus = Int32.Parse(strs[4]);
+                    if (fileId > 0)
+                    {
+                        string ipAdress = strs[0];
+                        ipAdressManager.AddIP(ipAdress);
+                        int httpMethodId = httpMethodManager.GetId(strs[2]);
+                        DateTimeOffset dateTime = DateTimeOffset.Parse(strs[1]);
+                        int httpStatus = Int32.Parse(strs[4]);
 
-                    logManager.Add(ipAdress, dateTime, fileId, httpMethodId, httpStatus);
+                        logManager.Add(ipAdress, dateTime, fileId, httpMethodId, httpStatus);
+                    }
                 }
                 else break;
                 Console.WriteLine(i++);
             }
-            while (str != null && i<2);
+            while (str != null && i<20);
             Console.WriteLine("all done");
             Console.ReadKey();
         }

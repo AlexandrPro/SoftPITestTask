@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using LogParser.Entity;
+using LogParser.WebSiteRequest;
 
 namespace LogParser.Managers
 {
@@ -27,7 +28,7 @@ namespace LogParser.Managers
             db.IPAdresses.Add(new IPAdress()
             {
                 IP = ip,
-                NAme = "qwerty"
+                NAme = WhoIsSite.GetCompanyName(ip)
             });
             db.SaveChanges();
         }

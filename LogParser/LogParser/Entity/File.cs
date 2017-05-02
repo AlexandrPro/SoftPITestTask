@@ -16,7 +16,7 @@ namespace LogParser.Entity
 
         public int Id { get; set; }
 
-        [StringLength(300)]
+        [StringLength(500)]
         public string PathAndName { get; set; }
 
         [StringLength(50)]
