@@ -127,8 +127,8 @@
     <Compile Include="Models\HTTPMethod.cs" />
     <Compile Include="Models\IPAdress.cs" />
     <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\LogListViewModel.cs" />
     <Compile Include="Models\LogModel.cs" />
-    <Compile Include="Models\LogViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -24,7 +24,6 @@ namespace WebApplication.Models
                 .WithOptional(e => e.IPAdress1)
                 .HasForeignKey(e => e.IPAdress);
         }
-
-        public System.Data.Entity.DbSet<WebApplication.Models.LogViewModel> LogViewModels { get; set; }
+        
     }
 }

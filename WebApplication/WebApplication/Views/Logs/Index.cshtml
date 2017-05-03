@@ -1,11 +1,20 @@
-﻿@model IEnumerable<WebApplication.Models.Log>
+﻿@model WebApplication.Models.LogListViewModel
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-
+<
+<form method="get">
+    <div class="form-inline">
+        <label class="control-label">HTTP Method </label>
+        @Html.DropDownList("method", Model.HTTPMethods as SelectList,
+                    htmlAttributes: new { @class = "form-control" })
+        <input type="submit" value="Фильтр" class="btn btn-default" />
+    </div>
+</form>
+    
 <table class="table">
     <tr>
         <th>
@@ -29,7 +38,7 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Logs) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.File.PathAndName)
