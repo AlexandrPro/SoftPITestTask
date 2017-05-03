@@ -15,7 +15,11 @@ namespace LogParser
     {
         static void Main(string[] args)
         {
-            LogFile file = new LogFile(@"C:\Users\Aleks_000\Google Диск\Работа\Soft PI\task\tariscope.com.access.log.0");
+            Console.WriteLine("Введите адрес и имя файла логов:");
+            string path = Console.ReadLine();
+
+
+            LogFile file = new LogFile(path);
             string str = "";
             HTTPMethodManager httpMethodManager = new HTTPMethodManager();
             FileManager fileManager = new FileManager();
