@@ -43,7 +43,7 @@ namespace LogParser.Managers
 
         private bool isHtml(string str)
         {
-            string pattern1 = @"(\S*\\)$";
+            string pattern1 = @"([^\.]+)";
             string pattern2 = @"(\S*\.html)$";
 
             if(Regex.IsMatch(str, pattern1) || Regex.IsMatch(str, pattern2))
